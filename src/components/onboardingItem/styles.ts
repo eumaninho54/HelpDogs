@@ -6,7 +6,7 @@ interface Props {
 
 export const Background = styled.View`
   flex: 1;
-  background-color: ${'#EBEBEB'};
+  background-color: #EBEBEB;
   width: ${({width}: Props) => `${width}px` };
   align-items: center;
 `;

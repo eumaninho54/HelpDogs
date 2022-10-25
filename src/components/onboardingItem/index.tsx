@@ -1,9 +1,10 @@
 import React from 'react';
 import { useWindowDimensions, View } from 'react-native';
+import { OnBoardingDTO } from '../../dtos/onBoardingDTO';
 import { Background, Description, Image, Title, ViewText } from './styles';
 
 interface OnboardingItemProps {
-  item: any
+  item: OnBoardingDTO
 }
 
 export const OnboardingItem: React.FC<OnboardingItemProps> = ({ item }) => {

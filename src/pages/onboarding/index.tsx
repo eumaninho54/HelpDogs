@@ -9,12 +9,10 @@ import { OnBoardingDTO } from '../../dtos/onBoardingDTO';
 import imgSlide1 from '../../assets/animals/dog1.png'
 import imgSlide2 from '../../assets/animals/animals2.png'
 import imgSlide3 from '../../assets/animals/animals1.png'
-import { useDispatch, useSelector } from 'react-redux';
-import { StoreState } from '../../store';
+import { useDispatch} from 'react-redux';
 import { setFirstAccess } from '../../store/user/slice';
 
 export const Onboarding: React.FC = () => {
-  const user = useSelector((state: StoreState) => state.user)
   const dispatch = useDispatch();
   const { width } = useWindowDimensions()
   const scrollX = useRef(new Animated.Value(0)).current
@@ -35,7 +33,7 @@ export const Onboarding: React.FC = () => {
     if(currentIndex < test.length - 1){
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1})
     }else {
-      dispatch(setFirstAccess({firstAccess: true}))
+      dispatch(setFirstAccess({firstAccess: false}))
       // Route change here...
     }
   }

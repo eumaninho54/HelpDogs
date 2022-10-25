@@ -13,7 +13,7 @@ const Paginator: React.FC<PaginatorProps> = ({ data, scrollX }) => {
 
   return (
     <View style={{flexDirection: 'row', height: 64}}>
-      {data.map((_: any, i: any) => {
+      {data.map((_, i) => {
         const inputRange = [(i - 1) * width, i * width, (i + 1) * width]
 
 

@@ -4,16 +4,26 @@ import Routes from './routes';
 import { PersistGate } from 'redux-persist/integration/react'
 import { persist, store } from './store';
 import { Provider } from "react-redux";
+import { useColorScheme } from 'react-native';
+import themes from './styles/themes';
+import { ThemeProvider } from 'styled-components/native';
 
 const App: React.FC = () => {
+  const deviceTheme = useColorScheme()
+  const theme = deviceTheme != null && deviceTheme != undefined
+    ? themes[deviceTheme]
+    : themes['light']
+
   return (
-    <SafeAreaProvider>
-      <Provider store={store}>
-        <PersistGate persistor={persist}>
-          <Routes/>
-        </PersistGate>
-      </Provider>
-    </SafeAreaProvider>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider>
+        <Provider store={store}>
+          <PersistGate persistor={persist}>
+            <Routes />
+          </PersistGate>
+        </Provider>
+      </SafeAreaProvider>
+    </ThemeProvider>
   )
 }
 

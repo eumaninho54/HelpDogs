@@ -5,8 +5,6 @@ interface props {
 }
 
 export const ButtonView = styled.TouchableOpacity`
-
-
   ${({type}: props) =>  type == "solid" && `
     background-color: #C0423F;
     padding: 10px 15px;
