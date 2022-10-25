@@ -1,14 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Onboarding } from './pages/onboarding';
-
-// import { Container } from './styles';
+import Routes from './routes';
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from "redux-persist"
+import { persist, store } from './store';
+import { Provider } from "react-redux";
 
 const App: React.FC = () => {
   return (
     <SafeAreaProvider>
-      <Onboarding/>
+      <Provider store={store}>
+        <PersistGate persistor={persist}>
+          <Routes/>
+        </PersistGate>
+      </Provider>
     </SafeAreaProvider>
   )
 }

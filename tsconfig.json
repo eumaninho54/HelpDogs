@@ -4,7 +4,8 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "types": [
-      "@types/styled-components-react-native"
+      "@types/styled-components-react-native",
+      "./node_modules/redux-persist/types"
     ],
 
     /* Completeness */
