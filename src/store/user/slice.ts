@@ -6,10 +6,12 @@ const usersSlice = createSlice({
   name: "admin",
   initialState: initialState,
   reducers: {
-    
+    setFirstAccess(state, {payload}: ISetFirstAccess){
+      return {...state, firstAccess: payload.firstAccess}
+    }
   },
   extraReducers: {}
 })
 
 export default usersSlice.reducer;
-//export const {} = usersSlice.actions;
+export const {setFirstAccess} = usersSlice.actions;

@@ -1,17 +1,22 @@
 import React, { useRef, useState } from 'react';
+import { Background, ButtonsGroup } from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList, Animated, ViewToken, useWindowDimensions } from 'react-native';
-import { Background, ButtonsGroup } from './styles';
 import Paginator from './paginator';
 import { Button } from '../../components/button';
 import { OnboardingItem } from '../../components/onboardingItem';
+import { OnBoardingDTO } from '../../dtos/onBoardingDTO';
 import imgSlide1 from '../../assets/animals/dog1.png'
 import imgSlide2 from '../../assets/animals/animals2.png'
 import imgSlide3 from '../../assets/animals/animals1.png'
-import { OnBoardingDTO } from '../../dtos/onBoardingDTO';
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreState } from '../../store';
+import { setFirstAccess } from '../../store/user/slice';
 
 export const Onboarding: React.FC = () => {
-  const {width} = useWindowDimensions()
+  const user = useSelector((state: StoreState) => state.user)
+  const dispatch = useDispatch();
+  const { width } = useWindowDimensions()
   const scrollX = useRef(new Animated.Value(0)).current
   const [currentIndex, setCurrentIndex] = useState(0)
   const slidesRef = useRef<FlatList>(null)
@@ -21,9 +26,17 @@ export const Onboarding: React.FC = () => {
       setCurrentIndex(viewableItems[0].index)
   }).current
 
-  const scrollTo = () => {
+  const skip = () => {
+    dispatch(setFirstAccess({firstAccess: false}))
+    // Route change here...
+  }
+
+  const next = () => {
     if(currentIndex < test.length - 1){
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1})
+    }else {
+      dispatch(setFirstAccess({firstAccess: true}))
+      // Route change here...
     }
   }
 
@@ -70,17 +83,16 @@ export const Onboarding: React.FC = () => {
 
         <ButtonsGroup width={width}>
           <Button 
-            onPress={() => scrollTo()}
+            onPress={() => skip()}
             title={"Pular"}
             type={"clear"}/>
 
           <Button
-            onPress={() => scrollTo()}
+            onPress={() => next()}
             title={"Próximo"}
             type={"solid"}/>
         </ButtonsGroup>
       </Background>
-
     </SafeAreaView>
   )
 }
