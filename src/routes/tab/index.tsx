@@ -17,7 +17,7 @@ export const TabNav: React.FC = () => {
   return (
     <Navigator 
       initialRouteName='home'
-      sceneContainerStyle={{backgroundColor: themeContext.tabNavBackground}}
+      sceneContainerStyle={{backgroundColor:'#f22'}}
       screenOptions={{
         headerShadowVisible: false,
         headerShown: false,
@@ -36,9 +36,8 @@ export const TabNav: React.FC = () => {
             <View>
               <Icon 
                 name='paw' 
-                
                 size={30} 
-                color={focused ? themeContext.primary : themeContext.tabNavIcon}/>
+                color={focused ? themeContext.primary : themeContext.icon}/>
             </View>
           )
         }}/>
@@ -53,25 +52,10 @@ export const TabNav: React.FC = () => {
                 name='heart' 
                 solid 
                 size={30} 
-                color={focused ? themeContext.primary : themeContext.tabNavIcon}/>
+                color={focused ? themeContext.primary : themeContext.icon}/>
             </View>
           )
         }}/>
-
-      <Screen
-        name='settings'
-        component={Settings} 
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View>
-              <Icon 
-                name='cog' 
-                size={30} 
-                color={focused ? themeContext.primary : themeContext.tabNavIcon}/>
-            </View>
-          )
-        }}/>
-
     </Navigator>
   )
 }
