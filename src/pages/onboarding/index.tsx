@@ -42,20 +42,20 @@ export const Onboarding: React.FC = () => {
     {
       id: 1,
       image: imgSlide1,
-      title: 'Conheça mais sobre seu novo amigo!',
-      description: 'Escolha a raça do seu pet favorito e conheça mais sobre o animalzinho.'
+      title: 'Make a new friend!',
+      description: 'Choose yout pet\'s and learn about your new little friend!'
     },
     {
       id: 2,
       image: imgSlide2,
-      title: 'Mantenha sempre por perto!',
-      description: 'Salve seus animaizinhos nos favoritos para visualização rápida.'
+      title: 'Always stay close to them!',
+      description: 'Save the information about your favorite pets.'
     },
     {
       id: 3,
       image: imgSlide3,
-      title: 'Seu pet salvando vidas!',
-      description: 'Seu animalzinho também pode doar sangue e salvar a vida de outro.'
+      title: 'Your pet saving lives!',
+      description: 'Your pet can also donate blood and save the life of another friend.'
     }
   ]
 
@@ -82,12 +82,12 @@ export const Onboarding: React.FC = () => {
         <ButtonsGroup width={width}>
           <Button 
             onPress={() => skip()}
-            title={"Pular"}
+            title={"Skip"}
             type={"clear"}/>
 
           <Button
             onPress={() => next()}
-            title={"Próximo"}
+            title={"Next"}
             type={"solid"}/>
         </ButtonsGroup>
       </Background>
