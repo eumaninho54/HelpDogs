@@ -1,6 +1,8 @@
 import { ThemeModel } from "./interface";
 
 export const dark: ThemeModel = {
-  primaryColor: "#C0423F",
-  backgroundColor: "#111111"
+  primary: "#C0423F",
+  background: "#111111",
+  tabNavBackground: "#DBDBDB",
+  tabNavIcon: "#A4A4A4"
 }

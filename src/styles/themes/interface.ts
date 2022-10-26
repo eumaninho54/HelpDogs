@@ -1,4 +1,6 @@
 export interface ThemeModel {
-  primaryColor: string;
-  backgroundColor: string;
+  primary: string;
+  background: string;
+  tabNavBackground: string;
+  tabNavIcon: string;
 }

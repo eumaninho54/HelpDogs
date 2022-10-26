@@ -1,24 +1,29 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import Home from '../pages/home';
+import { ThemeContext } from 'styled-components/native';
 import { Onboarding } from '../pages/onboarding';
 import { StoreState } from '../store';
+import { ThemeModel } from '../styles/themes/interface';
+import { TabNav } from './tab';
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
 const Routes: React.FC = () => {
   const user = useSelector((store: StoreState) => store.user)
+  const themeContext = useContext<ThemeModel>(ThemeContext)
+
 
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       { user.firstAccess 
-        ? <Navigator screenOptions={{ headerShown: false}}>
+        ? <Navigator screenOptions={{ headerShown: false }}>
             <Screen name='onboarding' component={Onboarding}/>
           </Navigator>
-        : <Navigator>
-            <Screen name='home' component={Home}/>
+
+        : <Navigator screenOptions={{ headerShown: false,}}>
+            <Screen name='tab' component={TabNav}/>
           </Navigator>
       }
       

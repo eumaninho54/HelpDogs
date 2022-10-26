@@ -7,5 +7,7 @@ interface props {
 
 export const Background = styled.View`
   flex: 1;
-  background-color: ${({theme}: props) => theme.backgroundColor};
+  background-color: ${({theme}: props) => theme.background};
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 `
