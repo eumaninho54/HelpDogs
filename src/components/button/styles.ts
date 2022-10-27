@@ -11,7 +11,6 @@ export const ButtonView = styled.TouchableOpacity`
     background-color: ${theme.primary};
     padding: 10px 15px;
     border-radius: 8px;
-    align-items: 'center';
   `}
 `
 
