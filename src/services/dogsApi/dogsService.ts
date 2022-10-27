@@ -12,7 +12,8 @@ export class DogsService {
       params: {
         q: textFilter
       }
-    }).then((res) => res.data.slice(0, 5).map((
+    }).then((res) => res.data.filter((item) => item.reference_image_id != null) // Validates if data is filled
+      .slice(0, 5).map((
       {
         id,
         name,
