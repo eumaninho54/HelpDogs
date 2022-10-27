@@ -5,19 +5,20 @@ import { Favorites } from '../../pages/favorites';
 import Home from '../../pages/home';
 import Settings from '../../pages/settings';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { ThemeModel } from '../../styles/themes/interface';
+import { ThemeModel } from '../../styles/themes/types';
 import { ThemeContext } from 'styled-components/native';
+import { TabParamList } from './types';
 
-const { Navigator, Screen } = createBottomTabNavigator()
+const { Navigator, Screen } = createBottomTabNavigator<TabParamList>()
 
 export const TabNav: React.FC = () => {
   const { height } = useWindowDimensions()
   const themeContext = useContext<ThemeModel>(ThemeContext)
 
   return (
-    <Navigator 
+    <Navigator
       initialRouteName='home'
-      sceneContainerStyle={{backgroundColor:'#f22'}}
+      sceneContainerStyle={{ backgroundColor: '#f22' }}
       screenOptions={{
         headerShadowVisible: false,
         headerShown: false,
@@ -30,32 +31,32 @@ export const TabNav: React.FC = () => {
       }}>
       <Screen
         name='home'
-        component={Home} 
+        component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <Icon 
-                name='paw' 
-                size={30} 
-                color={focused ? themeContext.primary : themeContext.icon}/>
+              <Icon
+                name='paw'
+                size={30}
+                color={focused ? themeContext.primary : themeContext.icon} />
             </View>
           )
-        }}/>
+        }} />
 
       <Screen
         name='favorites'
-        component={Favorites} 
+        component={Favorites}
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <Icon 
-                name='heart' 
-                solid 
-                size={30} 
-                color={focused ? themeContext.primary : themeContext.icon}/>
+              <Icon
+                name='heart'
+                solid
+                size={30}
+                color={focused ? themeContext.primary : themeContext.icon} />
             </View>
           )
-        }}/>
+        }} />
     </Navigator>
   )
 }

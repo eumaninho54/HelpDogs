@@ -1,8 +1,8 @@
-import { ThemeModel } from './../../styles/themes/interface';
-import styled from "styled-components/native";
+import {ThemeModel} from '../../styles/themes/types';
+import styled from 'styled-components/native';
 
 interface props {
-  theme: ThemeModel
+  theme: ThemeModel;
 }
 
 export const Background = styled.View`
@@ -10,5 +10,4 @@ export const Background = styled.View`
   justify-content: center;
   align-items: center;
   background-color: ${({theme}: props) => theme.background};
-  
-`
+`;

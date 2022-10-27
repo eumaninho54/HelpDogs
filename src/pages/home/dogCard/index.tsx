@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { ISearchByName } from '../../../services/dogsApi/interface';
+import { ISearchByName } from '../../../services/dogsApi/types';
 import { Background, Content, Favorite, Header, ImageDog, Name, Text, ViewButton } from './styles';
 import { Button } from '../../../components/button';
 import { ThemeContext } from 'styled-components/native';
-import { ThemeModel } from '../../../styles/themes/interface';
+import { ThemeModel } from '../../../styles/themes/types';
+import { useNavigation } from '@react-navigation/native';
+import { HomeScreenNavigationProps } from '../../../routes/tab/types';
 
 
 interface DogCardProps {
@@ -12,6 +14,7 @@ interface DogCardProps {
 
 export const DogCard: React.FC<DogCardProps> = ({ data }) => {
   const themeContext = useContext<ThemeModel>(ThemeContext)
+  const {navigate} = useNavigation<HomeScreenNavigationProps['navigation']>()
 
   const onFavorite = () => {
     // TO DO
@@ -19,6 +22,7 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
 
   const onShow = () => {
     // TO DO
+    navigate('dogSelected', {dogData: data})
   }
 
   return (
@@ -37,7 +41,7 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
             color={themeContext.primary}/>
         </Header>
 
-        <Text>{data.bred_for}</Text>
+        <Text numberOfLines={1}>{data.bred_for}</Text>
 
         <ViewButton>
           <Button title='Show' type='solid' onPress={onShow}/>

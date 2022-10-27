@@ -6,8 +6,8 @@ import { ThemeContext } from 'styled-components/native';
 import { useDebouncedCallback } from 'use-debounce';
 import Loading from '../../components/loading';
 import { DogsService } from '../../services/dogsApi/dogsService';
-import { ISearchByName } from '../../services/dogsApi/interface';
-import { ThemeModel } from '../../styles/themes/interface';
+import { ISearchByName } from '../../services/dogsApi/types';
+import { ThemeModel } from '../../styles/themes/types';
 import { DogCard } from './dogCard';
 import { Background, Header, IconSearch, Input, Search, SearchView, Title } from './styles';
 
@@ -75,8 +75,8 @@ const Home: React.FC = () => {
           ? <Loading />
 
           : <ScrollView>
-              {mapCards()}
-            </ScrollView>
+            {mapCards()}
+          </ScrollView>
         }
       </Background>
     </SafeAreaView>
