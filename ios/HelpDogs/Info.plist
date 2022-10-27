@@ -17,11 +17,13 @@
 		<string>FontAwesome5_Brands.ttf</string>
 		<string>FontAwesome.ttf</string>
 		<string>Feather.ttf</string>
-		<string>Evillcons.ttf</string>
+		<string>EvilIcons.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>AntDesign.ttf</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>CFBundleGetInfoString</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
