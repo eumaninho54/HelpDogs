@@ -9,14 +9,7 @@ interface props {
 
 export const Background = styled.View`
   flex: 1;
-  background-color: ${({theme}: props) => theme.tabNavBackground};
-`
-
-export const Content = styled.View`
-  flex: 1;
   background-color: ${({theme}: props) => theme.background};
-  //border-bottom-left-radius: 50px;
-  //border-bottom-right-radius: 50px;
 `
 
 export const Header = styled.View`
@@ -35,7 +28,7 @@ export const Search = styled.View`
   flex-direction: row;
   width: 100%;
   padding: 14px;
-  border-radius: 3px;
+  border-radius: 6px;
   margin-top: 15px;
 `
 
@@ -60,4 +53,4 @@ export const Title = styled.Text`
   ${({weight}: {weight?: 'bold'}) =>  weight == 'bold' && `
     font-weight: bold
   `}
-`
+`;
