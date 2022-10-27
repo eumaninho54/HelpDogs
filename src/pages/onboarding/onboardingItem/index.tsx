@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWindowDimensions, View } from 'react-native';
-import { OnBoardingDTO } from '../../dtos/onBoardingDTO';
+import { OnBoardingDTO } from '../../../dtos/onBoardingDTO';
 import { Background, Description, Image, Title, ViewText } from './styles';
 
 interface OnboardingItemProps {
@@ -8,14 +8,14 @@ interface OnboardingItemProps {
 }
 
 export const OnboardingItem: React.FC<OnboardingItemProps> = ({ item }) => {
-  const {width} = useWindowDimensions()
-  
+  const { width } = useWindowDimensions()
+
   return (
     <Background width={width}>
-      <Image 
-        source={item.image} 
-        width={width}/>
-        
+      <Image
+        source={item.image}
+        width={width} />
+
       <ViewText width={width}>
         <Title>{item.title}</Title>
 

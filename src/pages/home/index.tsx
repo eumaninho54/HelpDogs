@@ -3,17 +3,32 @@ import { TouchableOpacity, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { ThemeContext } from 'styled-components/native';
+import { useDebouncedCallback } from 'use-debounce';
+import { DogsService } from '../../services/dogsApi/dogsService';
+import { ISearchByName } from '../../services/dogsApi/interface';
 import { ThemeModel } from '../../styles/themes/interface';
 import { Background, Content, Header, IconSearch, Input, Search, SearchView, Title } from './styles';
 
 
 const Home: React.FC = () => {
+  const dogsService = new DogsService()
+  const [ dogsRequested, setDogsRequested] = useState<ISearchByName | null>()
   const [ searchText, setSearchText ] = useState('')
   const themeContext = useContext<ThemeModel>(ThemeContext)
 
-  useEffect(() => {
-    console.log(searchText)
-  },[searchText])
+  const onInput = (text: string) => {
+    setSearchText(text)
+    requestDogs()
+  }
+
+  const requestDogs = useDebouncedCallback(
+    () => {
+      dogsService.searchByName({textFilter: searchText})
+        .then(res => console.log(res))
+        .catch(err => console.log(err)) 
+    },
+    1000
+  )
 
   return (
     <SafeAreaView
@@ -41,7 +56,7 @@ const Home: React.FC = () => {
                 color={themeContext.icon}/>
               <Input
                 value={searchText}
-                onChangeText={setSearchText}
+                onChangeText={onInput}
                 placeholder={"Type breed or name"}/>
             </Search>
           </SearchView>
