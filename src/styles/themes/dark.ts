@@ -8,4 +8,6 @@ export const dark: ThemeModel = {
   secundaryBackground: '#28282899',
   tabNavBackground: '#DBDBDB',
   icon: '#A4A4A4',
+  yellow: '#ffecb8',
+  backgroundYellow: '#f7c028'
 };

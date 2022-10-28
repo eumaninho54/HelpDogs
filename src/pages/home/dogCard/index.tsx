@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { ISearchByName } from '../../../services/dogsApi/types';
 import { Background, Content, Favorite, Header, ImageDog, Name, Text, ViewButton } from './styles';
 import { Button } from '../../../components/button';
 import { ThemeContext } from 'styled-components/native';
 import { ThemeModel } from '../../../styles/themes/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProps } from '../../../routes/tab/types';
+import { DogDataDTO } from '../../../dtos/dogDataDTO';
 
 
 interface DogCardProps {
-  data: ISearchByName
+  data: DogDataDTO
 }
 
 export const DogCard: React.FC<DogCardProps> = ({ data }) => {
@@ -22,7 +22,7 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
 
   const onShow = () => {
     // TO DO
-    navigate('dogSelected', {dogData: data})
+    navigate('information', {dogData: data})
   }
 
   return (

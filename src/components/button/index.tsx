@@ -3,7 +3,7 @@ import { ButtonTitle, ButtonView } from './styles';
 
 interface ButtonProps {
   onPress: () => void
-  title: string
+  title: string | React.ReactNode
   type: "solid" | "clear"
 }
 

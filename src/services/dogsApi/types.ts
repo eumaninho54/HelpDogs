@@ -1,14 +1,17 @@
-export interface ISearchByName {     // Return data of request
+// Return data of request
+export interface ISearchByName {     
   id: number;
   name: string;
   bred_for: string;
-  country_code: string;
   breed_group: string;
   life_span: string;
   reference_image_id: string;
-  imageUrl: string;
+  origin: string;
+  temperament: string;
 }
 
-export interface SearchByNameProps { // Data to be sent
+// Data to be sent
+export interface SearchByNameProps { 
   textFilter: string;
 }
+

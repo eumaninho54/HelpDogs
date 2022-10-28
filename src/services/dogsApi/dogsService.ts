@@ -1,13 +1,12 @@
 import axios from 'axios';
+import { DogDataDTO } from '../../dtos/dogDataDTO';
 import {ISearchByName, SearchByNameProps} from './types';
 
 export class DogsService {
   private baseUrl = 'https://api.thedogapi.com/v1';
   private imageUrl = 'https://cdn2.thedogapi.com/images/';
 
-  async searchByName({
-    textFilter,
-  }: SearchByNameProps): Promise<ISearchByName[]> {
+  async searchByName({textFilter}: SearchByNameProps): Promise<DogDataDTO[]> {
     const req = await axios
       .request<ISearchByName[]>({
         method: 'get',
@@ -24,19 +23,20 @@ export class DogsService {
             ({
               id,
               name,
-              country_code,
               life_span,
               breed_group,
               reference_image_id,
               bred_for,
+              origin,
+              temperament
             }) => ({
               id,
               name,
-              country_code,
               life_span,
               breed_group,
-              reference_image_id,
               bred_for,
+              origin,
+              temperament,
               imageUrl: this.imageUrl + reference_image_id + '.jpg',
             }),
           ),

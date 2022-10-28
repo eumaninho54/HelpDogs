@@ -3,15 +3,17 @@ import type { CompositeScreenProps, NavigatorScreenParams, RouteProp } from "@re
 import type {  NativeStackScreenProps } from "@react-navigation/native-stack"
 import { NativeStackParamList } from '../types';
 
+// Type tab
 export type TabParamList = {
   'home': NavigatorScreenParams<NativeStackParamList>
   'favorites': undefined
 }
 
+// Type Navigation
 export type HomeScreenNavigationProps = CompositeScreenProps<
   BottomTabScreenProps<TabParamList, 'home'>,
   NativeStackScreenProps<NativeStackParamList>
 >
 
-
-export type DogSelectedRouteType = RouteProp<NativeStackParamList, 'dogSelected'>
+// Type Route
+export type InformationRouteType = RouteProp<NativeStackParamList, 'information'>

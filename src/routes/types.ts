@@ -1,9 +1,10 @@
-import { dogDataDTO } from "../dtos/dogDataDTO"
+import { DogDataDTO } from "../dtos/dogDataDTO"
 
+// Type Stack
 export type NativeStackParamList = {
   'onboarding': undefined
   'tab': undefined
-  'dogSelected': {
-    dogData: dogDataDTO
+  'information': {
+    dogData: DogDataDTO
   }
 }

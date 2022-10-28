@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { DogSelected } from '../pages/dogSelected';
+import { Information } from '../pages/information';
 import { Onboarding } from '../pages/onboarding';
 import { StoreState } from '../store';
 import { TabNav } from './tab';
@@ -17,12 +17,12 @@ const Routes: React.FC = () => {
     <NavigationContainer >
       {user.firstAccess
         ? <Navigator screenOptions={{ headerShown: false }}>
-            <Screen name='onboarding' component={Onboarding} />
-          </Navigator>
+          <Screen name='onboarding' component={Onboarding} />
+        </Navigator>
 
         : <Navigator screenOptions={{ headerShown: false }}>
           <Screen name='tab' component={TabNav} />
-          <Screen name='dogSelected' component={DogSelected} />
+          <Screen name='information' component={Information} />
         </Navigator>
       }
     </NavigationContainer>

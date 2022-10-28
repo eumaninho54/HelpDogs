@@ -8,8 +8,7 @@ interface props {
 
 export const ButtonView = styled.TouchableOpacity`
   ${({type, theme}: props) =>
-    type == 'solid' &&
-    `
+    type == 'solid' && `
     background-color: ${theme.primary};
     padding: 10px 15px;
     border-radius: 8px;

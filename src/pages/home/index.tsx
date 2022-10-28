@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ScrollView, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { ThemeContext } from 'styled-components/native';
 import { useDebouncedCallback } from 'use-debounce';
 import Loading from '../../components/loading';
+import { DogDataDTO } from '../../dtos/dogDataDTO';
 import { DogsService } from '../../services/dogsApi/dogsService';
-import { ISearchByName } from '../../services/dogsApi/types';
 import { ThemeModel } from '../../styles/themes/types';
 import { DogCard } from './dogCard';
 import { Background, Header, IconSearch, Input, Search, SearchView, Title } from './styles';
@@ -15,7 +15,7 @@ import { Background, Header, IconSearch, Input, Search, SearchView, Title } from
 const Home: React.FC = () => {
   const dogsService = new DogsService()
   const [isLoading, setIsloading] = useState(false)
-  const [dogsRequested, setDogsRequested] = useState<ISearchByName[]>([])
+  const [dogsRequested, setDogsRequested] = useState<DogDataDTO[]>([])
   const [searchText, setSearchText] = useState('')
   const themeContext = useContext<ThemeModel>(ThemeContext)
 

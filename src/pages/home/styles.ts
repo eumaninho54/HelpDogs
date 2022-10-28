@@ -27,7 +27,7 @@ export const Search = styled.View`
   background-color: ${({theme}: props) => theme.secundaryBackground};
   flex-direction: row;
   width: 100%;
-  padding: 14px;
+  padding: 0px 14px;
   border-radius: 6px;
   margin-top: 15px;
 `;
@@ -38,12 +38,14 @@ export const Input = styled.TextInput`
   width: 73%;
   align-self: center;
   padding: 0px;
+  height: 100%;
 `;
 
 export const IconSearch = styled(Icon)`
   margin-right: 10px;
   width: 10%;
   align-self: center;
+  padding: 14px 0px;
 `;
 
 export const Title = styled.Text`

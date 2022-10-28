@@ -8,4 +8,6 @@ export const light: ThemeModel = {
   secundaryBackground: '#D9D9D999',
   tabNavBackground: '#111111',
   icon: '#a0a0a0',
+  yellow: '#f7c028',
+  backgroundYellow: '#ffecb8'
 };
