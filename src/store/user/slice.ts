@@ -12,13 +12,11 @@ const usersSlice = createSlice({
     },
     setFavorite(state, {payload:{ favorites }}: ISetFavorites){
       const newState = {...state}
-
-      console.log(newState)
   
       newState.favorites = newState.favorites.filter((item) => item.id != favorites.id)
 
       JSON.stringify(newState.favorites) == JSON.stringify(state.favorites)
-      ? (newState.favorites.push(favorites), console.log('?'))
+      ? newState.favorites.push(favorites)
       : null
   
       return newState

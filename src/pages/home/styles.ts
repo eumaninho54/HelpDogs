@@ -21,9 +21,19 @@ export const Header = styled.View`
 export const SearchView = styled.View`
   flex-direction: column;
   padding: 10px 20px;
+  margin-bottom: 15px;
 `;
 
-export const Search = styled.View`
+export const Search = styled.View.attrs(({theme}: props) => ({
+  shadowColor: theme.shadow,
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.22,
+  shadowRadius: 5.46,
+  elevation: 9
+}))`
   background-color: ${({theme}: props) => theme.secundaryBackground};
   flex-direction: row;
   width: 100%;

@@ -1,15 +1,23 @@
 import {ThemeModel} from '../../../styles/themes/types';
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface props {
   theme: ThemeModel;
 }
 
-export const Background = styled.View`
+export const Background = styled.View.attrs(({theme}: props) => ({
+  shadowColor: theme.shadow,
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.22,
+  shadowRadius: 5.46,
+  elevation: 9
+}))`
   background-color: ${({theme}: props) => theme.secundaryBackground};
   width: auto;
-  margin: 15px 20px;
+  margin: 18px 20px;
   padding: 14px 0px 14px 14px;
   flex-direction: row;
   border-radius: 6px;

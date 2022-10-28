@@ -8,4 +8,5 @@ export interface ThemeModel {
   icon: string;
   yellow: string;
   backgroundYellow: string;
+  shadow: string;
 }

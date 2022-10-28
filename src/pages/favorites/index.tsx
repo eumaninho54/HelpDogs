@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { FlatList, Linking } from 'react-native';
+import { FlatList, Linking, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 import { DogDataDTO } from '../../dtos/dogDataDTO';
 import { StoreState } from '../../store';
 import { ThemeModel } from '../../styles/themes/types';
-import { Background, Banner, Header, Title, TextBanner, TitleBanner, ButtonBanner } from './styles';
+import { Background, Banner, Header, Title, TextBanner, TitleBanner, ButtonBanner, Separator } from './styles';
 import BannerASPCA from '../../assets/ASPCA/bannerASPCA.jpg'
 import { Divisor } from '../../components/divisor';
 import { DogCard } from './dogCard';
@@ -17,12 +17,6 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 export const Favorites: React.FC = () => {
   const themeContext = useContext<ThemeModel>(ThemeContext)
   const user = useSelector((store: StoreState) => store.user)
-
-  const renderItem = ({item}: {item: DogDataDTO}) => {
-    return (
-      <DogCard data={item}/>
-    )
-  }
 
   return (
     <SafeAreaView
@@ -54,7 +48,8 @@ export const Favorites: React.FC = () => {
               contentContainerStyle={{
                 flexGrow: 1,
                 justifyContent: 'center'
-              }}/>
+              }}
+              ItemSeparatorComponent={() => <Separator/>}/>
           
           : <Empty 
               text='No favorite dogs'

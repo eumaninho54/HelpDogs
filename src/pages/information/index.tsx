@@ -82,7 +82,7 @@ export const Information: React.FC = () => {
                 color={themeContext.text}
                 size={14}
                 weight={'normal'}>
-                {dogData.temperament != null ? dogData.temperament : "Unknown"}
+                {dogData.temperament != '' ? dogData.temperament : "Unknown"}
               </Title>
             </Section>
 
@@ -99,7 +99,7 @@ export const Information: React.FC = () => {
                 color={themeContext.text}
                 size={14}
                 weight={'normal'}>
-                {dogData.origin != null ? dogData.origin : "Unknown"}
+                {dogData.origin != '' ? dogData.origin : "Unknown"}
               </Title>
             </Section>
 
@@ -116,7 +116,7 @@ export const Information: React.FC = () => {
                 color={themeContext.text}
                 size={14}
                 weight={'normal'}>
-                {dogData.life_span != null ? dogData.life_span : "Unknown"}
+                {dogData.life_span != '' ? dogData.life_span : "Unknown"}
               </Title>
             </Section>
 

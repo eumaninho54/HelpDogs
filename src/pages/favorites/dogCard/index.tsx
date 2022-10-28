@@ -22,12 +22,13 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
   const dispatch = useDispatch()
   const { navigate } = useNavigation<FavoriteScreenNavigationProps['navigation']>()
 
+  console.log(data)
+
   const onFavorite = () => {
     dispatch(setFavorite({favorites: data}))
   }
 
   const onInformation = () => {
-    console.log("press")
     navigate('information', {dogData: data})
   }
 

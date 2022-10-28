@@ -62,3 +62,7 @@ export const ButtonBanner = styled.TouchableOpacity`
   align-items: center;
   padding: 7px;
 `
+
+export const Separator = styled.View`
+  width: 5px;
+`
