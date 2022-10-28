@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ScrollView, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons'
@@ -37,12 +37,6 @@ const Home: React.FC = () => {
     1000
   )
 
-  const mapCards = () => {
-    return dogsRequested.map(data => {
-      return <DogCard data={data} key={data.id} />
-    })
-  }
-
   return (
     <SafeAreaView
       edges={['top', 'left', 'right']}
@@ -77,9 +71,11 @@ const Home: React.FC = () => {
           ? <Loading />
 
           : dogsRequested[0] // if empty data
-            ? <ScrollView>
-                {mapCards()}
-              </ScrollView>
+            ? <FlatList
+                data={dogsRequested}
+                renderItem={({item}) => <DogCard data={item}/>}
+                keyExtractor={(_, index) => String(index)}
+              />
 
             : <Empty 
                 text='Empty list'

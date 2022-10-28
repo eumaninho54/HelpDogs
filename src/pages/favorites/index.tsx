@@ -19,7 +19,6 @@ export const Favorites: React.FC = () => {
   const user = useSelector((store: StoreState) => store.user)
 
   const renderItem = ({item}: {item: DogDataDTO}) => {
-
     return (
       <DogCard data={item}/>
     )
@@ -48,9 +47,14 @@ export const Favorites: React.FC = () => {
         { user.favorites.length != 0
           ? <FlatList 
               data={user.favorites} 
-              renderItem={renderItem}
+              renderItem={({item}) => <DogCard data={item}/>}
+              keyExtractor={(_, index) => String(index)}
               horizontal
-              showsHorizontalScrollIndicator={false}/>
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: 'center'
+              }}/>
           
           : <Empty 
               text='No favorite dogs'

@@ -16,6 +16,8 @@ export const ButtonView = styled.TouchableOpacity`
 `;
 
 export const ButtonTitle = styled.Text`
+  color: #000;
+  
   ${({type}: props) =>
     type == 'solid' &&
     `
