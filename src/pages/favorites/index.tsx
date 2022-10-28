@@ -10,6 +10,9 @@ import { Background, Banner, Header, Title, TextBanner, TitleBanner, ButtonBanne
 import BannerASPCA from '../../assets/ASPCA/bannerASPCA.jpg'
 import { Divisor } from '../../components/divisor';
 import { DogCard } from './dogCard';
+import { Empty } from '../../components/empty';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
+
 
 export const Favorites: React.FC = () => {
   const themeContext = useContext<ThemeModel>(ThemeContext)
@@ -49,9 +52,15 @@ export const Favorites: React.FC = () => {
               horizontal
               showsHorizontalScrollIndicator={false}/>
           
-          : null
+          : <Empty 
+              text='No favorite dogs'
+              icon={
+                <IconFontAwesome
+                  name='heart-o'
+                  size={40}
+                  color={themeContext.primary}/>
+              }/>
         }
-
       </Background>
     </SafeAreaView>
   )

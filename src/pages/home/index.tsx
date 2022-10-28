@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/AntDesign';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
+import IconMaterial from 'react-native-vector-icons/MaterialIcons'
 import { ThemeContext } from 'styled-components/native';
 import { useDebouncedCallback } from 'use-debounce';
+import { Empty } from '../../components/empty';
 import Loading from '../../components/loading';
 import { DogDataDTO } from '../../dtos/dogDataDTO';
 import { DogsService } from '../../services/dogsApi/dogsService';
@@ -50,7 +52,7 @@ const Home: React.FC = () => {
           <Title>Hello, <Title weight='bold'>Master!</Title></Title>
 
           <TouchableOpacity>
-            <Icon
+            <IconAntDesign
               name='setting'
               size={30}
               color={themeContext.icon} />
@@ -71,12 +73,22 @@ const Home: React.FC = () => {
           </Search>
         </SearchView>
 
-        {isLoading  //if loaded request
+        {isLoading  // if loaded request
           ? <Loading />
 
-          : <ScrollView>
-            {mapCards()}
-          </ScrollView>
+          : dogsRequested[0] // if empty data
+            ? <ScrollView>
+                {mapCards()}
+              </ScrollView>
+
+            : <Empty 
+                text='Empty list'
+                icon={
+                  <IconMaterial 
+                    name='error' 
+                    size={40}
+                    color={themeContext.primary}/>
+                }/>
         }
       </Background>
     </SafeAreaView>
