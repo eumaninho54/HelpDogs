@@ -6,6 +6,9 @@ import { ThemeModel } from '../../../styles/themes/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenNavigationProps } from '../../../routes/tab/types';
 import { DogDataDTO } from '../../../dtos/dogDataDTO';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFavorite } from '../../../store/user/slice';
+import { StoreState } from '../../../store';
 
 
 interface DogCardProps {
@@ -13,16 +16,17 @@ interface DogCardProps {
 }
 
 export const DogCard: React.FC<DogCardProps> = ({ data }) => {
+  const dispatch = useDispatch()
+  const user = useSelector((store: StoreState) => store.user)
   const themeContext = useContext<ThemeModel>(ThemeContext)
-  const {navigate} = useNavigation<HomeScreenNavigationProps['navigation']>()
+  const { navigate } = useNavigation<HomeScreenNavigationProps['navigation']>()
 
   const onFavorite = () => {
-    // TO DO
+    dispatch(setFavorite({ favorites: data }))
   }
 
   const onShow = () => {
-    // TO DO
-    navigate('information', {dogData: data})
+    navigate('information', { dogData: data })
   }
 
   return (
@@ -33,18 +37,23 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
         <Header>
           <Name numberOfLines={1}>{data.name} </Name>
 
-          <Favorite 
+          <Button
             onPress={onFavorite}
-            name='heart'
-            solid
-            size={25} 
-            color={themeContext.primary}/>
+            title={
+              <Favorite
+                name='heart'
+                solid={user.favorites.find((item) => item.id == data.id) ? true : false}
+                size={25}
+                color={themeContext.primary} />
+            }
+            type='clear' />
+
         </Header>
 
         <Text numberOfLines={1}>{data.bred_for}</Text>
 
         <ViewButton>
-          <Button title='Show' type='solid' onPress={onShow}/>
+          <Button title='Show' type='solid' onPress={onShow} />
         </ViewButton>
       </Content>
     </Background>

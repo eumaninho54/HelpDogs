@@ -10,11 +10,20 @@ import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ThemeContext } from 'styled-components/native';
 import { ThemeModel } from '../../styles/themes/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreState } from '../../store';
+import { setFavorite } from '../../store/user/slice';
 
 export const Information: React.FC = () => {
+  const dispatch = useDispatch()
+  const user = useSelector((store: StoreState) => store.user)
   const themeContext = useContext<ThemeModel>(ThemeContext)
   const { params: { dogData } } = useRoute<InformationRouteType>()
   const { goBack } = useNavigation()
+
+  const onFavorite = () => {
+    dispatch(setFavorite({favorites: dogData}))
+  }
 
   return (
     <>
@@ -35,7 +44,7 @@ export const Information: React.FC = () => {
       </ImageBanner>
 
       <Background>
-        <SafeAreaView 
+        <SafeAreaView
           edges={['bottom']}
           style={{ flex: 1 }}>
           <Content>
@@ -47,10 +56,15 @@ export const Information: React.FC = () => {
                 {dogData.name}
               </Title>
 
-              <IconFontAwesome
-                name='heart-o'
-                size={30}
-                color={themeContext.primary} />
+              <Button 
+                onPress={onFavorite}
+                type='clear'
+                title={
+                  <IconFontAwesome
+                    name={user.favorites.find((item) => item.id == dogData.id) ? 'heart' : 'heart-o'}
+                    size={30}
+                    color={themeContext.primary} />
+                }/>
             </Header>
 
             <Text>{dogData.breed_group}</Text>
@@ -88,7 +102,7 @@ export const Information: React.FC = () => {
                 {dogData.origin != null ? dogData.origin : "Unknown"}
               </Title>
             </Section>
-            
+
             <Section>
               <BackgroundIcon backgroundColor={themeContext.backgroundYellow}>
                 <IconCommunity

@@ -46,8 +46,7 @@ export const Name = styled.Text`
 `;
 
 export const Favorite = styled(Icon)`
-  width: 20%;
-  text-align: right;
+
 `;
 
 export const Text = styled.Text`
