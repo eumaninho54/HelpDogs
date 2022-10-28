@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       style={{ flex: 1, backgroundColor: themeContext.background }}>
       <Background>
         <Header>
-          <Title>Hello, <Title weight='bold'>Master</Title></Title>
+          <Title>Hello, <Title weight='bold'>Master!</Title></Title>
 
           <TouchableOpacity>
             <Icon

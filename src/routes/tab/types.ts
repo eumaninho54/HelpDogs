@@ -15,5 +15,10 @@ export type HomeScreenNavigationProps = CompositeScreenProps<
   NativeStackScreenProps<NativeStackParamList>
 >
 
+export type FavoriteScreenNavigationProps = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, 'favorites'>,
+  NativeStackScreenProps<NativeStackParamList>
+>
+
 // Type Route
 export type InformationRouteType = RouteProp<NativeStackParamList, 'information'>

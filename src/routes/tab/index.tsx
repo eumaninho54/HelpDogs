@@ -17,7 +17,7 @@ export const TabNav: React.FC = () => {
 
   return (
     <Navigator
-      initialRouteName='home'
+      initialRouteName='favorites'
       sceneContainerStyle={{ backgroundColor: '#f22' }}
       screenOptions={{
         headerShadowVisible: false,

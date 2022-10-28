@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Background, Content, Favorite, Header, ImageDog, Name, Text, ViewButton } from './styles';
+import { Background, Content, Header, ImageDog, Name, Text, ViewButton } from './styles';
 import { Button } from '../../../components/button';
 import { ThemeContext } from 'styled-components/native';
 import { ThemeModel } from '../../../styles/themes/types';
@@ -9,6 +9,8 @@ import { DogDataDTO } from '../../../dtos/dogDataDTO';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFavorite } from '../../../store/user/slice';
 import { StoreState } from '../../../store';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { View } from 'react-native';
 
 
 interface DogCardProps {
@@ -40,18 +42,16 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
           <Button
             onPress={onFavorite}
             title={
-              <Favorite
+              <Icon
                 name='heart'
                 solid={user.favorites.find((item) => item.id == data.id) ? true : false}
                 size={25}
                 color={themeContext.primary} />
             }
             type='clear' />
-
         </Header>
 
-        <Text numberOfLines={1}>{data.bred_for}</Text>
-
+        <Text >{data.bred_for}</Text>
         <ViewButton>
           <Button title='Show' type='solid' onPress={onShow} />
         </ViewButton>
