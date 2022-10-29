@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import { FlatList, Linking, View } from 'react-native';
+import { FlatList, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
-import { DogDataDTO } from '../../dtos/dogDataDTO';
 import { StoreState } from '../../store';
 import { ThemeModel } from '../../styles/themes/types';
-import { Background, Banner, Header, Title, TextBanner, TitleBanner, ButtonBanner, Separator } from './styles';
+import { Background, Banner, TextBanner, TitleBanner, ButtonBanner, Separator } from './styles';
 import BannerASPCA from '../../assets/ASPCA/bannerASPCA.jpg'
 import { Divisor } from '../../components/divisor';
 import { DogCard } from './dogCard';
 import { Empty } from '../../components/empty';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
+import { Header } from '../../components/header';
 
 
 export const Favorites: React.FC = () => {
@@ -23,9 +23,9 @@ export const Favorites: React.FC = () => {
       edges={['top', 'left', 'right']}
       style={{ flex: 1, backgroundColor: themeContext.background }}>
       <Background>
-        <Header>
-          <Title>Your <Title weight='bold'>favorites!</Title></Title>
-        </Header>
+        <Header
+          title='My'
+          titleBold='Favorites!'/>
 
         <Banner source={BannerASPCA}>
           <TitleBanner>Will You Help Dogs Like Me?</TitleBanner>
@@ -50,7 +50,7 @@ export const Favorites: React.FC = () => {
                 justifyContent: 'center'
               }}
               ItemSeparatorComponent={() => <Separator/>}/>
-          
+        
           : <Empty 
               text='No favorite dogs'
               icon={

@@ -5,7 +5,7 @@ export const light: ThemeModel = {
   text: '#000',
   secundaryText: '#303030',
   background: '#EBEBEB',
-  secundaryBackground: '#EAEAEA',
+  secundaryBackground: '#E7E7E7',
   tabNavBackground: '#111111',
   icon: '#a0a0a0',
   yellow: '#f7c028',

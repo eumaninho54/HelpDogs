@@ -4,7 +4,6 @@ import {ThemeModel} from '../../styles/themes/types';
 
 interface props {
   theme: ThemeModel;
-  weight?: 'bold';
 }
 
 export const Background = styled.View`
@@ -61,10 +60,4 @@ export const IconSearch = styled(Icon)`
 export const Title = styled.Text`
   font-size: 19px;
   color: ${({theme}: props) => theme.text};
-
-  ${({weight}: {weight?: 'bold'}) =>
-    weight == 'bold' &&
-    `
-    font-weight: bold
-  `}
 `;

@@ -4,20 +4,22 @@ import styled from 'styled-components/native';
 interface props {
   theme: ThemeModel;
   type: 'solid' | 'clear';
+  color?: string;
 }
 
 export const ButtonView = styled.TouchableOpacity`
+  
   ${({type, theme}: props) =>
     type == 'solid' && `
-    background-color: ${theme.primary};
     padding: 10px 15px;
     border-radius: 8px;
+    background-color: ${theme.primary};
   `}
 `;
 
 export const ButtonTitle = styled.Text`
-  color: #000;
-  
+  color: ${({color}: props) => color || '#111'};
+
   ${({type}: props) =>
     type == 'solid' &&
     `

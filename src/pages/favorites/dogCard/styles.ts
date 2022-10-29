@@ -8,7 +8,7 @@ interface props {
   weight: number
 }
 
-export const Background = styled.View.attrs(({theme}: props) => ({
+export const Background = styled.TouchableOpacity.attrs(({theme}: props) => ({
   shadowColor: theme.shadow,
   shadowOffset: {
     width: 0,
@@ -49,5 +49,6 @@ export const BackgroundIcon = styled.View`
   height: 30px;
   justify-content: center;
   align-items: center;
+  overflow: visible;
   background-color: #ffffffcc;
 `;

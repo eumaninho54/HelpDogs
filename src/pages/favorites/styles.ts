@@ -13,23 +13,6 @@ export const Background = styled.ScrollView`
   background-color: ${({theme}: props) => theme.background};
 `
 
-export const Header = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 20px;
-`;
-
-export const Title = styled.Text`
-  font-size: 19px;
-  color: ${({theme}: props) => theme.text};
-
-  ${({weight}: {weight?: 'bold'}) =>
-    weight == 'bold' &&
-    `
-    font-weight: bold
-  `}
-`;
-
 export const Banner = styled.ImageBackground`
   width: auto;
   height: 180px;

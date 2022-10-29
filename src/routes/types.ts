@@ -7,4 +7,5 @@ export type NativeStackParamList = {
   'information': {
     dogData: DogDataDTO
   }
+  'settings': undefined
 }

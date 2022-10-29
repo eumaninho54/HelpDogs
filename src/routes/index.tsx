@@ -4,6 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Information } from '../pages/information';
 import { Onboarding } from '../pages/onboarding';
+import { Settings } from '../pages/settings';
 import { StoreState } from '../store';
 import { TabNav } from './tab';
 import { NativeStackParamList } from './types';
@@ -23,6 +24,7 @@ const Routes: React.FC = () => {
         : <Navigator screenOptions={{ headerShown: false }}>
           <Screen name='tab' component={TabNav} />
           <Screen name='information' component={Information} />
+          <Screen name='settings' component={Settings} />
         </Navigator>
       }
     </NavigationContainer>

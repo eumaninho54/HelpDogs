@@ -3,10 +3,11 @@ import { ThemeModel } from "../../styles/themes/types";
 
 interface props {
   theme: ThemeModel
+  height: number
 }
 
 export const Background = styled.View`
-  height: 70%;
+  height: ${({height}: props) => `${height * 0.4}px`};
   width: 100%;
   justify-content: center;
   align-items: center;

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,12 +7,14 @@ import IconMaterial from 'react-native-vector-icons/MaterialIcons'
 import { ThemeContext } from 'styled-components/native';
 import { useDebouncedCallback } from 'use-debounce';
 import { Empty } from '../../components/empty';
+import { Header } from '../../components/header';
 import Loading from '../../components/loading';
 import { DogDataDTO } from '../../dtos/dogDataDTO';
+import { HomeScreenNavigationProps } from '../../routes/tab/types';
 import { DogsService } from '../../services/dogsApi/dogsService';
 import { ThemeModel } from '../../styles/themes/types';
 import { DogCard } from './dogCard';
-import { Background, Header, IconSearch, Input, Search, SearchView, Title } from './styles';
+import { Background, IconSearch, Input, Search, SearchView, Title } from './styles';
 
 
 const Home: React.FC = () => {
@@ -20,11 +23,15 @@ const Home: React.FC = () => {
   const [dogsRequested, setDogsRequested] = useState<DogDataDTO[]>([])
   const [searchText, setSearchText] = useState('')
   const themeContext = useContext<ThemeModel>(ThemeContext)
+  const { navigate } = useNavigation<HomeScreenNavigationProps['navigation']>()
 
   const onInput = (text: string) => {
     setSearchText(text)
     setIsloading(true)
     requestDogs()
+  }
+  const onSettings = () => {
+    navigate('settings')
   }
 
   const requestDogs = useDebouncedCallback(
@@ -42,16 +49,18 @@ const Home: React.FC = () => {
       edges={['top', 'left', 'right']}
       style={{ flex: 1, backgroundColor: themeContext.background }}>
       <Background>
-        <Header>
-          <Title>Hello, <Title weight='bold'>Master!</Title></Title>
-
-          <TouchableOpacity>
-            <IconAntDesign
-              name='setting'
-              size={30}
-              color={themeContext.icon} />
-          </TouchableOpacity>
-        </Header>
+        <Header
+          title='Hello,'
+          titleBold='Master!'
+          Icon={() => (
+            <TouchableOpacity onPress={onSettings}>
+              <IconAntDesign
+                name='setting'
+                size={30}
+                color={themeContext.icon} />
+            </TouchableOpacity>
+          )}
+        />
 
         <SearchView>
           <Title>Search for your Best Pet</Title>

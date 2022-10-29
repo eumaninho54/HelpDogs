@@ -1,4 +1,5 @@
 import React from 'react';
+import { useWindowDimensions } from 'react-native';
 import { Background, Text } from './styles';
 
 interface EmptyProps {
@@ -7,8 +8,10 @@ interface EmptyProps {
 }
 
 export const Empty: React.FC<EmptyProps> = ({text, icon}) => {
+  const { height } = useWindowDimensions()
+
   return (
-    <Background>
+    <Background height={height}>
       <Text>{text}</Text>
 
       {icon}
