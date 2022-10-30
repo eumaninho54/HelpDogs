@@ -7,4 +7,6 @@ export interface DogDataDTO {
   temperament: string;
   origin: string;
   imageUrl: string;
+  weight: string;
+  height: string;
 }

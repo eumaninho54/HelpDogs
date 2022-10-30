@@ -1,5 +1,7 @@
+import { View } from 'react-native';
 import {ThemeModel} from '../../styles/themes/types';
 import styled from 'styled-components/native';
+
 
 interface props {
   theme: ThemeModel;
@@ -7,13 +9,20 @@ interface props {
   size: number;
   color: string;
   weight: 'normal' | 'bold';
+  height: number
 }
 
-export const ImageBanner = styled.ImageBackground`
+export const Background = styled.View`
   flex: 1;
+  background-color: ${({theme}: props) => theme.background};
+`;
+
+export const ImageBanner = styled.ImageBackground`
   width: 100%;
-  height: 50%;
-  background-color: red;
+  height: ${({height}: props) => `${height * 0.45}px`};
+  overflow: hidden;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 `;
 
 export const BackgroundIcon = styled.View`
@@ -23,42 +32,36 @@ export const BackgroundIcon = styled.View`
   height: 50px;
   justify-content: center;
   align-items: center;
-  background-color: ${({backgroundColor}: props) => backgroundColor};
+  background-color: ${({backgroundColor}: props) => `${backgroundColor}`};
 `;
 
-export const Background = styled.View`
-  position: absolute;
-  background-color: ${({theme}: props) => theme.background};
-  bottom: 0;
-  width: 100%;
-  height: 55%;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-`;
 
 export const Content = styled.ScrollView`
-  padding: 30px 20px 0px 20px;
+  width: 100%;
 `;
 
-export const Header = styled.View`
+export const Head = styled.View`
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-`;
-
-export const Section = styled.View`
-  flex-direction: row;
   align-items: center;
-  margin-top: 25px;
+  padding: 25px 25px 20px 25px;
+  margin-bottom: 20px;
 `;
 
-export const Title = styled.Text`
+export const Text = styled.Text`
   font-size: ${({size}: props) => `${size}px`};
   font-weight: ${({weight}: props) => weight};
   color: ${({color}: props) => color};
   flex-shrink: 1;
+  margin-top: 5px;
 `;
 
-export const Text = styled.Text`
-  margin-top: 10px;
-`;
+export const InfoGroup = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0px 15px;
+  flex-wrap: wrap;
+`

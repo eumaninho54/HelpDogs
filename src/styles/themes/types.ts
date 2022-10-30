@@ -6,7 +6,5 @@ export interface ThemeModel {
   secundaryBackground: string;
   tabNavBackground: string;
   icon: string;
-  yellow: string;
-  backgroundYellow: string;
   shadow: string;
 }

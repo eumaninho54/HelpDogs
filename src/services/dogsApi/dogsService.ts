@@ -17,7 +17,13 @@ export class DogsService {
       })
       .then(res =>
         res.data
-          .filter(item => item.reference_image_id != null) // Validates if data is filled
+          .filter(
+            item => item.reference_image_id != null &&
+                    item.breed_group != null &&
+                    item.height != null &&
+                    item.weight != null &&
+                    item.temperament != null) // Validates if data is broken from api
+
           .slice(0, 5)
           .map(
             ({
@@ -28,16 +34,20 @@ export class DogsService {
               reference_image_id,
               bred_for,
               origin,
-              temperament
+              temperament,
+              weight,
+              height
             }) => ({
               id,
               name,
               life_span: life_span || '',
-              breed_group: breed_group || '',
+              breed_group: breed_group.split(',')[0] || '',
               bred_for: bred_for || '',
               origin: origin || '',
-              temperament: temperament || '',
+              temperament: temperament.split(',')[0] || '',
               imageUrl: this.imageUrl + reference_image_id + '.jpg',
+              weight: weight.imperial,
+              height: height.imperial
             }),
           ),
       )

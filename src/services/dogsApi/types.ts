@@ -8,6 +8,14 @@ export interface ISearchByName {
   reference_image_id: string;
   origin: string;
   temperament: string;
+  weight: {
+    imperial: string
+    metric: string
+  }
+  height: {
+    imperial: string
+    metric: string
+  }
 }
 
 // Data to be sent

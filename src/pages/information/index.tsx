@@ -1,18 +1,22 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from '../../components/button';
 import { InformationRouteType } from '../../routes/tab/types';
-import { Background, BackgroundIcon, Content, Header, ImageBanner, Text, Title, Section } from './styles';
+import { Background, BackgroundIcon, Content, Head, ImageBanner, Text, InfoGroup } from './styles';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
+import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
+import IconMaterial from 'react-native-vector-icons/MaterialIcons'
 import { ThemeContext } from 'styled-components/native';
 import { ThemeModel } from '../../styles/themes/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from '../../store';
 import { setFavorite } from '../../store/user/slice';
+import { useWindowDimensions, View } from 'react-native';
+import { InfoDog } from './infoDog';
+
 
 export const Information: React.FC = () => {
   const dispatch = useDispatch()
@@ -20,43 +24,56 @@ export const Information: React.FC = () => {
   const themeContext = useContext<ThemeModel>(ThemeContext)
   const { params: { dogData } } = useRoute<InformationRouteType>()
   const { goBack } = useNavigation()
+  const { height } = useWindowDimensions()
 
   const onFavorite = () => {
-    dispatch(setFavorite({favorites: dogData}))
+    dispatch(setFavorite({ favorites: dogData }))
   }
 
   return (
-    <>
-      <ImageBanner source={{ uri: dogData.imageUrl }}>
-        <SafeAreaView >
-          <BackgroundIcon backgroundColor={"#3b3b3b94"}>
-            <Button
-              onPress={() => goBack()}
-              type={'clear'}
-              title={
-                <IconAntDesign
-                  name='left'
-                  size={30}
-                  color={'#fff'} />
-              } />
-          </BackgroundIcon>
-        </SafeAreaView>
-      </ImageBanner>
-
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: themeContext.background }}
+      edges={['bottom']}>
       <Background>
-        <SafeAreaView
-          edges={['bottom']}
-          style={{ flex: 1 }}>
-          <Content>
-            <Header>
-              <Title
+        <ImageBanner
+          height={height}
+          resizeMode='cover'
+          source={{ uri: dogData.imageUrl }}>
+          <SafeAreaView>
+            <BackgroundIcon backgroundColor={'#3b3b3b94'}>
+              <Button
+                onPress={() => goBack()}
+                type={'clear'}
+                title={
+                  <IconAntDesign
+                    name='left'
+                    size={30}
+                    color={'#fff'} />
+                } />
+            </BackgroundIcon>
+          </SafeAreaView>
+        </ImageBanner>
+
+        <Content>
+          <Head>
+            <View>
+              <Text
                 size={24}
-                color={themeContext.primary}
+                color={themeContext.text}
                 weight={'bold'}>
                 {dogData.name}
-              </Title>
+              </Text>
 
-              <Button 
+              <Text
+                size={18}
+                color={themeContext.secundaryText}
+                weight={'normal'}>
+                {dogData.bred_for}
+              </Text>
+            </View>
+
+            <BackgroundIcon backgroundColor={`${themeContext.primary}20`}>
+              <Button
                 onPress={onFavorite}
                 type='clear'
                 title={
@@ -64,65 +81,57 @@ export const Information: React.FC = () => {
                     name={user.favorites.find((item) => item.id == dogData.id) ? 'heart' : 'heart-o'}
                     size={30}
                     color={themeContext.primary} />
-                }/>
-            </Header>
+                } />
+            </BackgroundIcon>
 
-            <Text>{dogData.breed_group}</Text>
-
-            <Section>
-              <BackgroundIcon backgroundColor={themeContext.backgroundYellow}>
-                <IconFontAwesome
-                  name='thermometer'
-                  size={40}
-                  color={themeContext.yellow}
-                />
-              </BackgroundIcon>
-
-              <Title
-                color={themeContext.text}
-                size={14}
-                weight={'normal'}>
-                {dogData.temperament != '' ? dogData.temperament : "Unknown"}
-              </Title>
-            </Section>
-
-            <Section>
-              <BackgroundIcon backgroundColor={themeContext.backgroundYellow}>
+          </Head>
+          <InfoGroup>
+            <InfoDog
+              title='Group'
+              text={dogData.breed_group}
+              icon={
                 <IconFontAwesome5
-                  name='flag-usa'
-                  size={35}
-                  color={themeContext.yellow}
-                />
-              </BackgroundIcon>
+                  name='dog'
+                  color={themeContext.primary}
+                  size={25} />
+              } />
 
-              <Title
-                color={themeContext.text}
-                size={14}
-                weight={'normal'}>
-                {dogData.origin != '' ? dogData.origin : "Unknown"}
-              </Title>
-            </Section>
+            <InfoDog
+              title='Temperament'
+              text={dogData.temperament}
+              icon={
+                <IconFontAwesome
+                  name='thermometer-4'
+                  color={themeContext.primary}
+                  size={25} />
+              } />
+          </InfoGroup>
 
-            <Section>
-              <BackgroundIcon backgroundColor={themeContext.backgroundYellow}>
-                <IconCommunity
-                  name='hospital'
-                  size={40}
-                  color={themeContext.yellow}
-                />
-              </BackgroundIcon>
+          <InfoGroup>
+            <InfoDog
+              title='Weight'
+              text={dogData.weight}
+              icon={
+                <IconMaterialCommunity
+                  name='weight'
+                  color={themeContext.primary}
+                  size={25} />
+              }
+            />
 
-              <Title
-                color={themeContext.text}
-                size={14}
-                weight={'normal'}>
-                {dogData.life_span != '' ? dogData.life_span : "Unknown"}
-              </Title>
-            </Section>
+            <InfoDog
+              title='Height'
+              text={dogData.height}
+              icon={
+                <IconMaterial
+                  name='height'
+                  color={themeContext.primary}
+                  size={25} />
+              } />
 
-          </Content>
-        </SafeAreaView>
+          </InfoGroup>
+        </Content>
       </Background>
-    </>
+    </SafeAreaView>
   )
 }
