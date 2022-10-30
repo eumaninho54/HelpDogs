@@ -37,8 +37,6 @@ The app was built with:
 2 - Design screens keeping minimal style.
 
 # Installation and Setup Instructions 🛠
-To run this project, you'll need to the server running locally on your machine. You can find the server and instructions 
-<a href="https://github.com/eumaninho54/cine-app-server" targer="_blank">here<a/>
 
 1. Installation: 
 ```
