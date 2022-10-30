@@ -4,7 +4,7 @@ import Routes from './routes';
 import { PersistGate } from 'redux-persist/integration/react'
 import { persist, store } from './store';
 import { Provider } from "react-redux";
-import { LogBox, useColorScheme } from 'react-native';
+import { LogBox, StatusBar, useColorScheme, Platform } from 'react-native';
 import themes from './styles/themes';
 import { ThemeProvider } from 'styled-components/native';
 
@@ -17,15 +17,20 @@ const App: React.FC = () => {
     : themes['light']
 
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaProvider>
+    <SafeAreaProvider>
+      <StatusBar
+        animated
+        backgroundColor={theme.primary}
+        barStyle={Platform.OS == 'ios' ? 'dark-content' : 'light-content'}
+        />
+      <ThemeProvider theme={theme}>
         <Provider store={store}>
           <PersistGate persistor={persist}>
             <Routes />
           </PersistGate>
         </Provider>
-      </SafeAreaProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   )
 }
 

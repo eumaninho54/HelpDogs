@@ -11,9 +11,10 @@ interface props {
 export const SafeAreaView = styled(safeAreaView)`
   flex: 1;
   background-color: ${({theme}: props) => theme.background};
+  color: #000;
 `
 
-export const Background = styled.ScrollView`
+export const Background = styled.View`
   flex: 1;
   width: 100%;
   height: 100%;

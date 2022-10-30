@@ -6,12 +6,22 @@ interface ButtonProps {
   title: string | React.ReactNode
   type: "solid" | "clear"
   color?: string
+  padding?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = ({ onPress, title, type, color }) => {
+export const Button: React.FC<ButtonProps> = ({ onPress, title, type, color, padding }) => {
+  console.log(padding)
+
   return (
-    <ButtonView onPress={onPress} type={type}>
-      <ButtonTitle color={color} type={type}>{title}</ButtonTitle>
+    <ButtonView 
+      padding={padding}
+      onPress={onPress} 
+      type={type}>
+      <ButtonTitle
+        color={color} 
+        type={type}>
+        {title}
+      </ButtonTitle>
     </ButtonView>
   )
 }

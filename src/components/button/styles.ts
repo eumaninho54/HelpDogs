@@ -5,14 +5,16 @@ interface props {
   theme: ThemeModel;
   type: 'solid' | 'clear';
   color?: string;
+  padding?: boolean;
 }
 
 export const ButtonView = styled.TouchableOpacity`
-  
+  padding: ${({padding}: props) => padding ? '10px 15px' : '0px'};
+  border-radius: 8px;
+
   ${({type, theme}: props) =>
     type == 'solid' && `
     padding: 10px 15px;
-    border-radius: 8px;
     background-color: ${theme.primary};
   `}
 `;

@@ -20,15 +20,15 @@ export const Banner = styled.ImageBackground`
   width: 100%;
   height: ${({height}: props) => `${height * 0.45}px`};
   overflow: hidden;
+  align-items: flex-start;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
 `;
 
-export const BackgroundIcon = styled.View`
+export const BackgroundIcon = styled.TouchableOpacity`
   margin: 10px;
-  border-radius: 25px;
-  width: 50px;
-  height: 50px;
+  border-radius: 50px;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   background-color: ${({backgroundColor}: props) => `${backgroundColor}`};
@@ -65,6 +65,6 @@ export const InfoGroup = styled.View`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 0px 15px;
+  padding: 5px 15px 10px;
   flex-wrap: wrap;
 `

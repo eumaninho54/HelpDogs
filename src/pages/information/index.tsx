@@ -40,16 +40,13 @@ export const Information: React.FC = () => {
           resizeMode='cover'
           source={{ uri: dogData.imageUrl }}>
           <SafeAreaView>
-            <BackgroundIcon backgroundColor={'#3b3b3b94'}>
-              <Button
-                onPress={() => goBack()}
-                type={'clear'}
-                title={
-                  <IconAntDesign
-                    name='left'
-                    size={30}
-                    color={'#fff'} />
-                } />
+            <BackgroundIcon
+              onPress={goBack}
+              backgroundColor={'#3b3b3b94'}>
+              <IconAntDesign
+                name='left'
+                size={30}
+                color={'#fff'} />
             </BackgroundIcon>
           </SafeAreaView>
         </Banner>
@@ -72,16 +69,13 @@ export const Information: React.FC = () => {
               </Text>
             </ViewText>
 
-            <BackgroundIcon backgroundColor={`${themeContext.primary}20`}>
-              <Button
-                onPress={onFavorite}
-                type='clear'
-                title={
-                  <IconFontAwesome
-                    name={user.favorites.find((item) => item.id == dogData.id) ? 'heart' : 'heart-o'}
-                    size={30}
-                    color={themeContext.primary} />
-                } />
+            <BackgroundIcon 
+              onPress={onFavorite}
+              backgroundColor={`${themeContext.primary}20`}>
+              <IconFontAwesome
+                name={user.favorites.find((item) => item.id == dogData.id) ? 'heart' : 'heart-o'}
+                size={30}
+                color={themeContext.primary} />
             </BackgroundIcon>
 
           </Head>

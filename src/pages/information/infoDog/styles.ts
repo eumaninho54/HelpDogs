@@ -1,6 +1,9 @@
 import styled from "styled-components/native";
 import { ThemeModel } from "../../../styles/themes/types";
-
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp
+} from 'react-native-responsive-screen';
 
 interface props {
   theme: ThemeModel
@@ -16,14 +19,14 @@ export const Background = styled.View.attrs(({theme}: props) => ({
   },
   shadowOpacity: 0.32,
   shadowRadius: 5.46,
-  elevation: 11
+  elevation: 9
 }))`
   background-color: ${({theme}: props) => theme.secundaryBackground};
-  width: 165px;
   padding: 10px;
   margin: 10px 0px;
   border-radius: 9px;
   flex-direction: row;
+  min-width: 175px;
 `
 
 export const BackgroundIcon = styled.View`
@@ -33,10 +36,12 @@ export const BackgroundIcon = styled.View`
   width: 45px;
   height: 45px;
   border-radius: 9px;
+  
 `
 
 export const InfoView = styled.View`
   justify-content: center;
+  width: auto;
 `
 
 export const Text = styled.Text`

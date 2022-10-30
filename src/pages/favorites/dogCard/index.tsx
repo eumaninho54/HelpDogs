@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
-import { Button } from '../../../components/button';
 import { DogDataDTO } from '../../../dtos/dogDataDTO';
 import { ThemeModel } from '../../../styles/themes/types';
 import { Background, BackgroundIcon, Image, Text } from './styles';
@@ -33,16 +32,11 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
     <Background>
       <TouchableOpacity onPress={onInformation}>
         <Image source={{ uri: data.imageUrl }}>
-          <BackgroundIcon backgroundColor={"#3b3b3b94"}>
-            <Button
-              type='clear'
-              onPress={onFavorite}
-              title={
-                <IconFontAwesome
-                  name='heart'
-                  color={themeContext.primary}
-                  size={18} />
-              } />
+          <BackgroundIcon onPress={onFavorite}>
+            <IconFontAwesome
+              name='heart'
+              color={themeContext.primary}
+              size={18} />
           </BackgroundIcon>
         </Image>
 

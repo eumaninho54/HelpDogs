@@ -13,6 +13,7 @@ export const Background = styled.View`
 export const ButtonsGroup = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: ${({width}: props) => `${width}px`};
   padding: 10px 20px;
 `

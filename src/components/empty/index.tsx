@@ -12,7 +12,6 @@ export const Empty: React.FC<EmptyProps> = ({text, icon}) => {
   return (
     <Background>
       <Text>{text}</Text>
-
       {icon}
     </Background>
   )

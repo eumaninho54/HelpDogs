@@ -44,24 +44,26 @@ export const Header = styled.View`
   justify-content: space-between;
 `;
 
-export const BackgroundIcon = styled.View`
+export const BackgroundIcon = styled.TouchableOpacity`
   border-radius: 25px;
   width: 40px;
   height: 40px;
   justify-content: center;
   align-items: center;
   background-color: ${({theme}: props) => `${theme.primary}20`};
+  
 `;
 
 export const Name = styled.Text`
   color: ${({theme}: props) => theme.text};
   font-weight: bold;
   font-size: ${RFValue(16)};
-  width: 80%;
+  width: 100%;
   word-wrap: break-word;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-shrink: 1;
 `;
 
 export const Text = styled.Text`

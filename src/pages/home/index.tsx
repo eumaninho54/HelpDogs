@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   )
 
   return (
-    <SafeAreaView edges={['top', 'left', 'right']}>
+    <SafeAreaView edges={['top', 'left', 'right']} >
       <Background showsVerticalScrollIndicator={false}>
         <Header
           title='Hello,'
@@ -78,6 +78,7 @@ const Home: React.FC = () => {
 
           : dogsRequested[0] // if empty data
             ? <FlatList
+                showsVerticalScrollIndicator={false}
                 data={dogsRequested}
                 renderItem={({item}) => <DogCard data={item}/>}
                 keyExtractor={(_, index) => String(index)}

@@ -22,16 +22,17 @@ export const Background = styled.ScrollView`
 `;
 
 export const Banner = styled.ImageBackground`
-  width: 100%;
+  width: auto;
   margin: 10px 20px;
   padding: 15px 20px;
+  align-items: baseline;
 `;
 
 export const TitleBanner = styled.Text`
   color: #fff;
   font-size: ${RFValue(20)};
   font-weight: bold;
-  width: 45%;
+  width: 50%;
   margin-bottom: 10px;
 `;
 
@@ -47,7 +48,7 @@ export const ButtonBanner = styled.TouchableOpacity`
   margin-top: 20px;
   color: #fff;
   background-color: ${({theme}: props) => theme.primary};
-  width: 90px;
+  width: auto;
   justify-content: center;
   align-items: center;
   padding: 7px;

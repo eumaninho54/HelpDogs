@@ -42,6 +42,7 @@ export const Settings: React.FC = () => {
           </Title>
           <ButtonGroup>
             <Button
+              padding={true}
               color={themeContext.text}
               title='Cancel'
               type='clear'

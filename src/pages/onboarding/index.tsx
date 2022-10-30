@@ -82,6 +82,7 @@ export const Onboarding: React.FC = () => {
         <ButtonsGroup width={width}>
           <Button
             onPress={() => skip()}
+            padding
             title={"Skip"}
             type={"clear"} />
 

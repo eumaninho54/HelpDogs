@@ -36,26 +36,18 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
 
       <Content>
         <Header>
-          <Name numberOfLines={1}>{data.name} </Name>
+          <Name numberOfLines={1}>{data.name}asasas</Name>
 
-          <BackgroundIcon>
-            <Button
-              onPress={onFavorite}
-              type='clear'
-              title={
-                <Icon
-                  name='heart'
-                  solid={user.favorites.find((item) => item.id == data.id) ? true : false}
-                  size={20}
-                  color={themeContext.primary} />
-              }
-            />
-
+          <BackgroundIcon onPress={onFavorite}>
+            <Icon
+              name='heart'
+              solid={user.favorites.find((item) => item.id == data.id) ? true : false}
+              size={20}
+              color={themeContext.primary} />
           </BackgroundIcon>
         </Header>
 
-        <Text >{data.bred_for}</Text>
-        <Text >{data.origin}</Text>
+        <Text numberOfLines={1}>{data.origin || data.bred_for || data.breed_group}</Text>
         <ViewButton>
           <Button title='Show' type='solid' onPress={onShow} />
         </ViewButton>

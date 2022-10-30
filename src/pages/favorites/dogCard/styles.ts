@@ -17,7 +17,7 @@ export const Background = styled.View.attrs(({theme}: props) => ({
   },
   shadowOpacity: 0.32,
   shadowRadius: 5.46,
-  elevation: 11
+  elevation: 9
 }))`
   width: 150px;
   padding: 10px;
@@ -43,11 +43,10 @@ export const Text = styled.Text`
   width: 100%;
 `
 
-export const BackgroundIcon = styled.View`
+export const BackgroundIcon = styled.TouchableOpacity`
   margin: 8px;
   border-radius: 10px;
-  width: 30px;
-  height: 30px;
+  padding: 7px;
   justify-content: center;
   align-items: center;
   overflow: visible;

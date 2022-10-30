@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useContext } from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { View } from 'react-native';
 import { Favorites } from '../../pages/favorites';
 import Home from '../../pages/home';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -11,7 +11,6 @@ import { TabParamList } from './types';
 const { Navigator, Screen } = createBottomTabNavigator<TabParamList>()
 
 export const TabNav: React.FC = () => {
-  const { height } = useWindowDimensions()
   const themeContext = useContext<ThemeModel>(ThemeContext)
 
   return (
@@ -24,7 +23,7 @@ export const TabNav: React.FC = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: themeContext.tabNavBackground,
-          height: height * 0.12,
+          height: 90,
           borderTopWidth: 0
         }
       }}>
