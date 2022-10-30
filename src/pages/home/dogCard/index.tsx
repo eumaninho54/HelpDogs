@@ -36,7 +36,7 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
 
       <Content>
         <Header>
-          <Name numberOfLines={1}>{data.name}asasas</Name>
+          <Name numberOfLines={1}>{data.name}</Name>
 
           <BackgroundIcon onPress={onFavorite}>
             <Icon
