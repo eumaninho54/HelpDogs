@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 import { Button } from '../../../components/button';
 import { DogDataDTO } from '../../../dtos/dogDataDTO';
-import { StoreState } from '../../../store';
 import { ThemeModel } from '../../../styles/themes/types';
 import { Background, BackgroundIcon, Image, Text } from './styles';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -58,7 +56,7 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
         numberOfLines={1}
         color={themeContext.secundaryText} 
         size={15}>
-        {data.breed_group}
+        {data.bred_for}
       </Text>
     </Background>
   )

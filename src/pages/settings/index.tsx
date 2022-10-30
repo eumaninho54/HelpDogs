@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Linking, View } from 'react-native';
+import { Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemeContext } from 'styled-components/native';
 import { Header } from '../../components/header';

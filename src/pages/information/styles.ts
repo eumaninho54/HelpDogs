@@ -1,4 +1,3 @@
-import { View } from 'react-native';
 import {ThemeModel} from '../../styles/themes/types';
 import styled from 'styled-components/native';
 

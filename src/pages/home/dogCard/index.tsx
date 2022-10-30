@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFavorite } from '../../../store/user/slice';
 import { StoreState } from '../../../store';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { View } from 'react-native';
 
 
 interface DogCardProps {

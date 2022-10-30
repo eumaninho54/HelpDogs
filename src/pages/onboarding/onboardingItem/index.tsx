@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { OnBoardingDTO } from '../../../dtos/onBoardingDTO';
 import { Background, Description, Image, Title, ViewText } from './styles';
 
