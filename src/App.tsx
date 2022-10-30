@@ -10,6 +10,11 @@ import { ThemeProvider } from 'styled-components/native';
 
 LogBox.ignoreAllLogs() // Ingore logs in dev
 
+if(__DEV__) {
+  import('./config/reactotron') // Start reactotron in dev
+    .then((res) => res.reactotron.log?.("Init dev"))
+}
+
 const App: React.FC = () => {
   const deviceTheme = useColorScheme()
   const theme = deviceTheme != null && deviceTheme != undefined
