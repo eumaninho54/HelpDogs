@@ -1,6 +1,7 @@
 import Icon from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 import {ThemeModel} from '../../styles/themes/types';
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel;
@@ -43,7 +44,7 @@ export const Search = styled.View.attrs(({theme}: props) => ({
 
 export const Input = styled.TextInput`
   color: ${({theme}: props) => theme.secundaryText};
-  font-size: 16px;
+  font-size: ${RFValue(16)};
   width: 73%;
   align-self: center;
   padding: 0px;
@@ -58,6 +59,6 @@ export const IconSearch = styled(Icon)`
 `;
 
 export const Title = styled.Text`
-  font-size: 19px;
+  font-size: ${RFValue(19)};
   color: ${({theme}: props) => theme.text};
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { ThemeModel } from "../../styles/themes/types";
-
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel
@@ -14,7 +14,7 @@ export const Background = styled.View`
 `
 
 export const Title = styled.Text`
-  font-size: 19px;
+  font-size: ${RFValue(19)};
   color: ${({theme}: props) => theme.text};
 
   ${({weight}: props) =>

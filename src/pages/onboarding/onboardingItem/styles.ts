@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface Props {
   width: number;
@@ -27,7 +28,7 @@ export const ViewText = styled.View`
 
 export const Title = styled.Text`
   font-weight: 800;
-  font-size: 28px;
+  font-size: ${RFValue(28)};
   margin-bottom: 20px;
   color: #C0423F;
   text-align: center;
@@ -35,7 +36,7 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   font-weight: 300;
-  font-size: 16px;
+  font-size: ${RFValue(16)};
   color: #62656b;
   text-align: center;
   padding: 0px 34px;

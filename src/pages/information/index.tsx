@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from '../../components/button';
 import { InformationRouteType } from '../../routes/tab/types';
-import { Background, BackgroundIcon, Content, Head, ImageBanner, Text, InfoGroup } from './styles';
+import { Background, BackgroundIcon, Content, Head, ImageBanner, Text, InfoGroup, ViewText } from './styles';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -14,7 +14,7 @@ import { ThemeModel } from '../../styles/themes/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from '../../store';
 import { setFavorite } from '../../store/user/slice';
-import { useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { InfoDog } from './infoDog';
 
 
@@ -56,7 +56,7 @@ export const Information: React.FC = () => {
 
         <Content>
           <Head>
-            <View>
+            <ViewText>
               <Text
                 size={24}
                 color={themeContext.text}
@@ -70,7 +70,7 @@ export const Information: React.FC = () => {
                 weight={'normal'}>
                 {dogData.bred_for}
               </Text>
-            </View>
+            </ViewText>
 
             <BackgroundIcon backgroundColor={`${themeContext.primary}20`}>
               <Button

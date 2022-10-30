@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { ThemeModel } from "../../styles/themes/types";
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel;
@@ -21,7 +22,7 @@ export const Banner = styled.ImageBackground`
 
 export const TitleBanner = styled.Text`
   color: #fff;
-  font-size: 20px;
+  font-size: ${RFValue(20)};
   font-weight: bold;
   width: 45%;
   margin-bottom: 10px;
@@ -30,7 +31,7 @@ export const TitleBanner = styled.Text`
 export const TextBanner = styled.Text`
   color: #fff;
   font-weight: 600;
-  font-size: 15px;
+  font-size: ${RFValue(15)};
   width: ${({width}: props) => `${width || '100'}%`};
   text-align: ${({align}: props) => align || 'left'};
 `

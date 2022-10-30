@@ -75,6 +75,7 @@ export const Settings: React.FC = () => {
 
         <Head>
           <Title
+            size={16}
             color={themeContext.secundaryText}>
             CONTENT
           </Title>
@@ -86,7 +87,11 @@ export const Settings: React.FC = () => {
               name='save-alt'
               color={themeContext.icon}
               size={30}/>
-            <Title color={themeContext.text}>Clear Data</Title>
+            <Title
+              size={16}
+              color={themeContext.text}>
+              Clear Data
+            </Title>
           </IconView>
 
           <IconAntDesign
@@ -97,6 +102,7 @@ export const Settings: React.FC = () => {
 
         <Head>
           <Title
+            size={16}
             color={themeContext.secundaryText}>
             ABOUT
           </Title>
@@ -109,7 +115,11 @@ export const Settings: React.FC = () => {
               color={themeContext.icon}
               size={30}/>
 
-            <Title color={themeContext.text}>See the source</Title>
+            <Title 
+              size={16}
+              color={themeContext.text}>
+              See the source
+            </Title>
           </IconView>
 
           <IconAntDesign
@@ -125,7 +135,11 @@ export const Settings: React.FC = () => {
               color={themeContext.icon}
               size={30}/>
 
-            <Title color={themeContext.text}>Follow me on</Title>
+            <Title 
+              size={16} 
+              color={themeContext.text}>
+              Follow me on
+            </Title>
           </IconView>
 
           <IconAntDesign

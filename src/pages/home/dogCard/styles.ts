@@ -1,5 +1,6 @@
 import {ThemeModel} from '../../../styles/themes/types';
 import styled from 'styled-components/native';
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel;
@@ -46,7 +47,7 @@ export const Header = styled.View`
 export const Name = styled.Text`
   color: ${({theme}: props) => theme.text};
   font-weight: bold;
-  font-size: 16px;
+  font-size: ${RFValue(16)};
   width: 80%;
   word-wrap: break-word;
   white-space: nowrap;
@@ -56,7 +57,7 @@ export const Name = styled.Text`
 
 export const Text = styled.Text`
   color: ${({theme}: props) => theme.secundaryText};
-  font-size: 14px;
+  font-size: ${RFValue(14)};
   width: 80%;
 `;
 

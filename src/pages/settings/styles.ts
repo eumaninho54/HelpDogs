@@ -2,13 +2,13 @@ import styled from 'styled-components/native';
 import {ThemeModel} from '../../styles/themes/types';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import IconAwesome from 'react-native-vector-icons/FontAwesome';
-
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel;
   color: string;
   weight: number;
-  size?: number;
+  size: number;
 }
 
 export const Background = styled.View`
@@ -59,7 +59,7 @@ export const IconView = styled.View`
 `
 
 export const Title = styled.Text`
-  font-size: ${({size}: props) => `${size || 16}px`};
+  font-size: ${({size}: props) => RFValue(size)};
   color: ${({color}: props) => color};
   font-weight: ${({weight}: props) => weight || 400};
 `;

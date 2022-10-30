@@ -1,5 +1,6 @@
 import { ThemeModel } from './../../../styles/themes/types';
 import styled from "styled-components/native";
+import { RFValue } from 'react-native-responsive-fontsize'
 
 interface props {
   theme: ThemeModel
@@ -36,7 +37,7 @@ export const Image = styled.ImageBackground.attrs({
 
 export const Text = styled.Text`
   margin-top: 8px;
-  font-size: ${({size}: props) => `${size}px`};
+  font-size: ${({size}: props) => RFValue(size)};
   color:  ${({color}: props) => color};
   font-weight: ${({weight}: props) => `${weight || 400}` };
   width: 100%;
