@@ -8,10 +8,9 @@ interface EmptyProps {
 }
 
 export const Empty: React.FC<EmptyProps> = ({text, icon}) => {
-  const { height } = useWindowDimensions()
 
   return (
-    <Background height={height}>
+    <Background>
       <Text>{text}</Text>
 
       {icon}

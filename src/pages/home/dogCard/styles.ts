@@ -25,7 +25,7 @@ export const Background = styled.View.attrs(({theme}: props) => ({
   justify-content: space-around;
 `;
 
-export const ImageDog = styled.Image`
+export const Image = styled.Image`
   width: 30%;
   height: 120px;
   border-radius: 6px;
@@ -42,6 +42,15 @@ export const Header = styled.View`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+`;
+
+export const BackgroundIcon = styled.View`
+  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({theme}: props) => `${theme.primary}20`};
 `;
 
 export const Name = styled.Text`

@@ -9,28 +9,28 @@ interface props {
   weight: number
 }
 
-export const Background = styled.TouchableOpacity.attrs(({theme}: props) => ({
+export const Background = styled.View.attrs(({theme}: props) => ({
   shadowColor: theme.shadow,
   shadowOffset: {
     width: 0,
     height: 4,
   },
-  shadowOpacity: 0.22,
+  shadowOpacity: 0.32,
   shadowRadius: 5.46,
-  elevation: 9,
+  elevation: 11
 }))`
-  width: 170px;
+  width: 150px;
   padding: 10px;
   background-color: ${({theme}: props) => theme.secundaryBackground};
   border-radius: 10px;
-  margin: 20px 5px;
+  margin: 20px 10px;
 `;
 
 export const Image = styled.ImageBackground.attrs({
   imageStyle: { borderRadius: 10}
 })`
   width: 100%;
-  height: 200px;
+  height: 160px;
   margin-bottom: 8px;
   align-items: flex-end;
 `

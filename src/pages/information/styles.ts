@@ -16,7 +16,7 @@ export const Background = styled.View`
   background-color: ${({theme}: props) => theme.background};
 `;
 
-export const ImageBanner = styled.ImageBackground`
+export const Banner = styled.ImageBackground`
   width: 100%;
   height: ${({height}: props) => `${height * 0.45}px`};
   overflow: hidden;

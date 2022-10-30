@@ -9,6 +9,7 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import { setFavorite } from '../../../store/user/slice';
 import { useNavigation } from '@react-navigation/native';
 import { FavoriteScreenNavigationProps } from '../../../routes/tab/types';
+import { TouchableOpacity } from 'react-native';
 
 
 interface DogCardProps {
@@ -21,43 +22,45 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
   const { navigate } = useNavigation<FavoriteScreenNavigationProps['navigation']>()
 
   const onFavorite = () => {
-    dispatch(setFavorite({favorites: data}))
+    dispatch(setFavorite({ favorites: data }))
   }
 
   const onInformation = () => {
-    navigate('information', {dogData: data})
+    navigate('information', { dogData: data })
   }
 
   return (
-    <Background onPress={onInformation}>
-      <Image source={{ uri: data.imageUrl }}>
-        <BackgroundIcon backgroundColor={"#3b3b3b94"}>
-          <Button
-            type='clear'
-            onPress={onFavorite}
-            title={
-              <IconFontAwesome
-                name='heart'
-                color={themeContext.primary}
-                size={18} />
-            } />
-        </BackgroundIcon>
-      </Image>
+    <Background>
+      <TouchableOpacity onPress={onInformation}>
+        <Image source={{ uri: data.imageUrl }}>
+          <BackgroundIcon backgroundColor={"#3b3b3b94"}>
+            <Button
+              type='clear'
+              onPress={onFavorite}
+              title={
+                <IconFontAwesome
+                  name='heart'
+                  color={themeContext.primary}
+                  size={18} />
+              } />
+          </BackgroundIcon>
+        </Image>
 
-      <Text 
-        numberOfLines={1}
-        color={themeContext.text} 
-        size={18}
-        weight={700}>
-        {data.name}
-      </Text>
+        <Text
+          numberOfLines={1}
+          color={themeContext.text}
+          size={18}
+          weight={700}>
+          {data.name}
+        </Text>
 
-      <Text 
-        numberOfLines={1}
-        color={themeContext.secundaryText} 
-        size={15}>
-        {data.bred_for}
-      </Text>
+        <Text
+          numberOfLines={1}
+          color={themeContext.secundaryText}
+          size={15}>
+          {data.bred_for}
+        </Text>
+      </TouchableOpacity>
     </Background>
   )
 }

@@ -1,3 +1,4 @@
+import { SafeAreaView as safeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 import {ThemeModel} from '../../styles/themes/types';
@@ -7,8 +8,15 @@ interface props {
   theme: ThemeModel;
 }
 
-export const Background = styled.View`
+export const SafeAreaView = styled(safeAreaView)`
   flex: 1;
+  background-color: ${({theme}: props) => theme.background};
+`
+
+export const Background = styled.ScrollView`
+  flex: 1;
+  width: 100%;
+  height: 100%;
   background-color: ${({theme}: props) => theme.background};
 `;
 

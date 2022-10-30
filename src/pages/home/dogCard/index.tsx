@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Background, Content, Header, ImageDog, Name, Text, ViewButton } from './styles';
+import { Background, BackgroundIcon, Content, Header, Image, Name, Text, ViewButton } from './styles';
 import { Button } from '../../../components/button';
 import { ThemeContext } from 'styled-components/native';
 import { ThemeModel } from '../../../styles/themes/types';
@@ -32,25 +32,30 @@ export const DogCard: React.FC<DogCardProps> = ({ data }) => {
 
   return (
     <Background>
-      <ImageDog source={{ uri: data.imageUrl }} />
+      <Image source={{ uri: data.imageUrl }} />
 
       <Content>
         <Header>
           <Name numberOfLines={1}>{data.name} </Name>
 
-          <Button
-            onPress={onFavorite}
-            title={
-              <Icon
-                name='heart'
-                solid={user.favorites.find((item) => item.id == data.id) ? true : false}
-                size={25}
-                color={themeContext.primary} />
-            }
-            type='clear' />
+          <BackgroundIcon>
+            <Button
+              onPress={onFavorite}
+              type='clear'
+              title={
+                <Icon
+                  name='heart'
+                  solid={user.favorites.find((item) => item.id == data.id) ? true : false}
+                  size={20}
+                  color={themeContext.primary} />
+              }
+            />
+
+          </BackgroundIcon>
         </Header>
 
         <Text >{data.bred_for}</Text>
+        <Text >{data.origin}</Text>
         <ViewButton>
           <Button title='Show' type='solid' onPress={onShow} />
         </ViewButton>

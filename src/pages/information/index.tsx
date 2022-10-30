@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from '../../components/button';
 import { InformationRouteType } from '../../routes/tab/types';
-import { Background, BackgroundIcon, Content, Head, ImageBanner, Text, InfoGroup, ViewText } from './styles';
+import { Background, BackgroundIcon, Content, Head, Banner, Text, InfoGroup, ViewText } from './styles';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -35,7 +35,7 @@ export const Information: React.FC = () => {
       style={{ flex: 1, backgroundColor: themeContext.background }}
       edges={['bottom']}>
       <Background>
-        <ImageBanner
+        <Banner
           height={height}
           resizeMode='cover'
           source={{ uri: dogData.imageUrl }}>
@@ -52,7 +52,7 @@ export const Information: React.FC = () => {
                 } />
             </BackgroundIcon>
           </SafeAreaView>
-        </ImageBanner>
+        </Banner>
 
         <Content>
           <Head>

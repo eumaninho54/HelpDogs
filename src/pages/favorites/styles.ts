@@ -1,24 +1,31 @@
-import styled from "styled-components/native";
-import { ThemeModel } from "../../styles/themes/types";
-import { RFValue } from 'react-native-responsive-fontsize'
+import styled from 'styled-components/native';
+import {ThemeModel} from '../../styles/themes/types';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {SafeAreaView as safeAreaView} from 'react-native-safe-area-context';
+
 
 interface props {
   theme: ThemeModel;
   weight?: 'bold';
   width?: number;
-  align?: 'center'
+  align?: 'center';
 }
+
+export const SafeAreaView = styled(safeAreaView)`
+  flex: 1;
+  background-color: ${({theme}: props) => theme.background};
+`;
 
 export const Background = styled.ScrollView`
   flex: 1;
   background-color: ${({theme}: props) => theme.background};
-`
+`;
 
 export const Banner = styled.ImageBackground`
-  width: auto;
+  width: 100%;
   margin: 10px 20px;
   padding: 15px 20px;
-`
+`;
 
 export const TitleBanner = styled.Text`
   color: #fff;
@@ -26,7 +33,7 @@ export const TitleBanner = styled.Text`
   font-weight: bold;
   width: 45%;
   margin-bottom: 10px;
-`
+`;
 
 export const TextBanner = styled.Text`
   color: #fff;
@@ -34,7 +41,7 @@ export const TextBanner = styled.Text`
   font-size: ${RFValue(15)};
   width: ${({width}: props) => `${width || '100'}%`};
   text-align: ${({align}: props) => align || 'left'};
-`
+`;
 
 export const ButtonBanner = styled.TouchableOpacity`
   margin-top: 20px;
@@ -44,8 +51,4 @@ export const ButtonBanner = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   padding: 7px;
-`
-
-export const Separator = styled.View`
-  width: 5px;
-`
+`;

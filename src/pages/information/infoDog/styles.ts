@@ -8,7 +8,16 @@ interface props {
   weight: number;
 }
 
-export const Background = styled.View`
+export const Background = styled.View.attrs(({theme}: props) => ({
+  shadowColor: theme.shadow,
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.32,
+  shadowRadius: 5.46,
+  elevation: 11
+}))`
   background-color: ${({theme}: props) => theme.secundaryBackground};
   width: 165px;
   padding: 10px;

@@ -4,9 +4,11 @@ import Routes from './routes';
 import { PersistGate } from 'redux-persist/integration/react'
 import { persist, store } from './store';
 import { Provider } from "react-redux";
-import { useColorScheme } from 'react-native';
+import { LogBox, useColorScheme } from 'react-native';
 import themes from './styles/themes';
 import { ThemeProvider } from 'styled-components/native';
+
+LogBox.ignoreAllLogs() // Ingore logs in dev
 
 const App: React.FC = () => {
   const deviceTheme = useColorScheme()

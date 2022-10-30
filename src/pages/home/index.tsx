@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons'
 import { ThemeContext } from 'styled-components/native';
@@ -14,7 +13,7 @@ import { HomeScreenNavigationProps } from '../../routes/tab/types';
 import { DogsService } from '../../services/dogsApi/dogsService';
 import { ThemeModel } from '../../styles/themes/types';
 import { DogCard } from './dogCard';
-import { Background, IconSearch, Input, Search, SearchView, Title } from './styles';
+import { Background, IconSearch, Input, SafeAreaView, Search, SearchView, Title } from './styles';
 
 
 const Home: React.FC = () => {
@@ -45,10 +44,8 @@ const Home: React.FC = () => {
   )
 
   return (
-    <SafeAreaView
-      edges={['top', 'left', 'right']}
-      style={{ flex: 1, backgroundColor: themeContext.background }}>
-      <Background>
+    <SafeAreaView edges={['top', 'left', 'right']}>
+      <Background showsVerticalScrollIndicator={false}>
         <Header
           title='Hello,'
           titleBold='Master!'
@@ -86,7 +83,7 @@ const Home: React.FC = () => {
                 keyExtractor={(_, index) => String(index)}
               />
 
-            : <Empty 
+            : <Empty
                 text='Empty list'
                 icon={
                   <IconMaterial 
