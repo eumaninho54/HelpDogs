@@ -8,7 +8,7 @@ interface props {
 }
 
 export const Background = styled.View`
-  height: 100%;
+  height: 240px;
   width: 100%;
   justify-content: center;
   align-items: center;
