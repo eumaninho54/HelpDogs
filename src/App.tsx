@@ -25,9 +25,7 @@ const App: React.FC = () => {
     <SafeAreaProvider>
       <StatusBar
         animated
-        backgroundColor={theme.primary}
-        barStyle={Platform.OS == 'ios' ? 'dark-content' : 'light-content'}
-        />
+        backgroundColor={theme.primary}/>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <PersistGate persistor={persist}>
