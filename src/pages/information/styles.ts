@@ -21,8 +21,6 @@ export const Banner = styled.ImageBackground`
   height: ${({height}: props) => `${height * 0.45}px`};
   overflow: hidden;
   align-items: flex-start;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
 `;
 
 export const BackgroundIcon = styled.TouchableOpacity`

@@ -76,6 +76,7 @@ export const Settings: React.FC = () => {
 
         <Head>
           <Title
+            weight={600}
             size={16}
             color={themeContext.secundaryText}>
             CONTENT
@@ -103,6 +104,7 @@ export const Settings: React.FC = () => {
 
         <Head>
           <Title
+            weight={600}
             size={16}
             color={themeContext.secundaryText}>
             ABOUT

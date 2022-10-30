@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons'
@@ -18,7 +18,7 @@ import { Background, IconSearch, Input, SafeAreaView, Search, SearchView, Title 
 
 const Home: React.FC = () => {
   const dogsService = new DogsService()
-  const [isLoading, setIsloading] = useState(false)
+  const [isLoading, setIsloading] = useState(true)
   const [dogsRequested, setDogsRequested] = useState<DogDataDTO[]>([])
   const [searchText, setSearchText] = useState('')
   const themeContext = useContext<ThemeModel>(ThemeContext)
@@ -42,6 +42,18 @@ const Home: React.FC = () => {
     },
     1000
   )
+
+  useEffect(() => {
+    const initial = async () => {
+      await dogsService.getDogs({limit: 5})
+        .then(res => setDogsRequested(res))
+        .catch(err => console.log(err))
+
+      setIsloading(false)
+    }
+
+    initial()
+  },[])
 
   return (
     <SafeAreaView edges={['top', 'left', 'right']} >

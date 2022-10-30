@@ -23,3 +23,6 @@ export interface SearchByNameProps {
   textFilter: string;
 }
 
+export interface GetDogsProps {
+  limit: number;
+}
