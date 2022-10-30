@@ -15,8 +15,8 @@ const usersSlice = createSlice({
     setFavorite(state, {payload}: ISetFavorites) {
       return setFavoriteReducer(state, {payload})
     },
-    clearState(state){
-      return clearStateReducer(state)
+    clearState(){
+      return clearStateReducer()
     }
   },
   extraReducers: {}

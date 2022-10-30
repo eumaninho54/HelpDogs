@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { Favorites } from '../../pages/favorites';
 import Home from '../../pages/home';
-import Settings from '../../pages/settings';
+import { Settings } from '../../pages/settings';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { ThemeModel } from '../../styles/themes/types';
 import { ThemeContext } from 'styled-components/native';
