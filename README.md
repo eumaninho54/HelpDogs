@@ -27,7 +27,7 @@ The app was built with:
 
 # Features 🚀
 - It is possible to search for the animal by the breed name.
-- Favorite the dog and save or persist the local state.
+- Favorite the dog, save, and persist the local state.
 - App contains dark mode and light mode, automatically uses the configuration set in the OS.
 
 
